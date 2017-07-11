@@ -57,7 +57,7 @@ Let's consider object types Player, Car, Timer, StopLight, Race, actionKey
 -numCars (number) number of cars >=2 <=4;
 -winner (car) car that won
 -startLight (obj StopLight) (setColor(Red), type = traffic, timerObj.max = 5, timerObj.setmax = true)
--speedLight (obj, Stoplight (setColor(green), type = single, timerObj.max = 1.5, timerObj.AutoRestart = true;
+-speedLight (obj, Stoplight (setColor(green), type = single, timerObj.max = 2, timerObj.AutoRestart = true;
 -isRunning (boolean) is race currently in progress
 
 6. ActionKey
@@ -87,40 +87,21 @@ Work with a partner to list some properties and methods of cards, the game itsel
    -countdown starts at five. 
    -At 0 light turns green. 
    -Race.isRunning = 1; Keypress events now register and increase car speed;
-   -Speed light also 
+   -traffic light alternates bw red and green on random intervals from 0-2 seconds
+   -if player hits action key while light is green car accelerates 1 unit per key press
+   -if player hits action key while light is red car decreases speed at intervals describe in summary above
+   -whichever car reaches finish line first wins
 
-2. While speedLight user continuously presses their key to increase car speed
-  -each keypress increase vehicle speed units by 1;
-  * Add click event listener to cards that:
-     - shows the other side of the card (`flipOver`)
-     - creates or updates a pair (don't add same card twice though!)
-     - checks if the cards in the pair match (`isMatch`)
-     - continues according to result (see 3 and 4, below)
-
-3. If the user flips two matching cards face-up at the same time, the cards will be removed from the game.
-  * Assuming `isMatch()` gave true for the current pair:
-    - set a short timer so the user can see that the cards matched (`setTimeout`), then...
-    - replace each card in the pair with a "blank space" image to let user know it's been removed
-    - use `off` to take off the click event listener from both cards
-    - remove both cards from the game's list of cards
-
-4. If the user flips two non-matching cards face-up at the same time, both cards will turn back face down.
-  * Assuming `isMatch()` gave false for the current pair:
-    - set a short timer so the user can see the cards (`setTimeout`), then...
-    - flip each card in the pair back over so they're face-down
-
-5. The user wins when they've matched all the cards!
-  * Every time there is a match, the Game should also check if its cards array is now empty. (`hasWon`)
-  * If so, show a win screen (`celebrate`)
-
+4. Winning car triggers user name to display in center screen in decorated text "Username Wins!". 
+  -confetti effect ovver screen.
+  -new race button appears- race track clears & user can begin player selection process again
 
 ###Potential Challenges / Development Questions
 
-1. How to randomize or shuffle card locations at the beginning of the game?
-2. How to ensure that all the cards have matches?
-3. How to change the image for a card that's face-down, face-up, or matched and removed from game?
-4. Is there a way to hide the identity of a card even from users who know how to use the Chrome dev tools?
-5. Cool card flip animation?!
+1. determine bw keypress and keyhold, so players cannot just hold key down to accelerate continuous
+2. is JS fast and reliable enough to fairly run this game? will all eventListeners have same priority?
+3. single car image or a few different ones based on speed, acceleration, in the lead, etc.
+4. Track all players finish times
 
 ### Deliverable
 
