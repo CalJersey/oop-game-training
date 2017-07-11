@@ -8,9 +8,6 @@
     <!-- Google custom font: Quantico -->
     <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
 
-		<!-- Bootstrap CDN -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="styles/reset.css">
 
@@ -23,22 +20,29 @@
     <title>Racy Cars</title>
   </head>
   <body>
-    <div class="logo"></div>
-    <div class="content">
-        <h1>Racy Cars</h1>
+    <div id="stopLightContainer">
+      <div id="stopLight" class="stopLight stop"><div id="countDown"></div></div>
     </div>
-    <!-- Instructions -->
-    <div class="content">
-      <h5>Instructions:</h5>
-      <ul class="instructions">
-        <li>2 to4 players</li>
-        <li>Enter username. Choose accelerator key and car.</li>
-        <li>When race starts, press accelerator key repeatedly to speed up your car when traffic light is green.</li>
-        <li>When traffic light is red, hitting accelerator will slow down your car (quickly!)</li>
-        <li>First car to reach finish line wins</li>
-      </ul>
+    <div class="headerContainer">
+      <div class="logo"></div>
+      <div class="headerContent">
+          <h1>Racy Cars</h1>
+      </div>
+      <!-- Instructions -->
+      <div class="headerContent">
+        <h5>Instructions:</h5>
+        <ul class="instructions">
+          <li>2 to4 players</li>
+          <li>Enter username. Choose accelerator key and car.</li>
+          <li>When race starts, press accelerator key repeatedly to speed up your car when traffic light is green.</li>
+          <li>When traffic light is red, hitting accelerator will slow down your car (quickly!)</li>
+          <li>First car to reach finish line wins</li>
+        </ul>
+      </div>
     </div>
+    <a href="#" id="startButton">Start Race</a>
     <div class="raceTrack" id="raceTrack"></div>
+
     <script src="scripts/app.js"></script>
   </body>
 </html>
