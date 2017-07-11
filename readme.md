@@ -102,6 +102,7 @@ Work with a partner to list some properties and methods of cards, the game itsel
 2. is JS fast and reliable enough to fairly run this game? will all eventListeners have same priority?
 3. single car image or a few different ones based on speed, acceleration, in the lead, etc.
 4. Track all players finish times
+5. modal window for each driver
 
 ### Deliverable
 
