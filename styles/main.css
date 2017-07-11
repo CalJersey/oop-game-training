@@ -1,0 +1,75 @@
+body {
+  background-color: #6fa8dc;
+  color: #ffffff;
+  font-family: 'Quantico', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  align: center;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 900;
+  padding-bottom: 10px;
+
+}
+
+ul.instructions {
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+ul.instructions li {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 20px;
+}
+
+.logo {
+  background-image: url("../images/logo.gif");
+  width: 300px;
+  height: 265px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  float:left;
+}
+
+.content {
+  margin: 5px;
+  padding: 20px;
+  background-color: #2b78e4;
+  border: 1px solid #ffffff;
+  width: 50%;
+  min-width: 500px;
+  align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.raceTrack {
+  margin-top: 30px;
+  width: 100%;
+  background-image: url('../images/roadway.gif');
+  height: 250px;
+  background-repeat: repeat-x;
+  float: left;
+  position: relative;
+
+}
+
+.car1 {
+  top: 20px;
+  right: 20px;
+  position: absolute;
+}
+.car2{
+  top: 100px;
+  right: 20px;
+  position: absolute;
+}
