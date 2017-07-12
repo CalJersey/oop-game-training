@@ -108,10 +108,11 @@ ul.instructions li {
   background-image: url('../images/stopLight.gif');
   background-position: 0px 0px;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .start{
-   background-position: -159px 0px;
+   background-position: -166px 0px;
 }
 
 .stop{
@@ -120,9 +121,11 @@ ul.instructions li {
 
 #countDown {
   position: relative;
-  top: 110;
-  left: 55;
+  top: 102px;
+  left: 58px;
+  font-size: 55px;
 }
+
 #startButton {
 	-moz-box-shadow: 3px 4px 0px 0px #1564ad;
 	-webkit-box-shadow: 3px 4px 0px 0px #1564ad;

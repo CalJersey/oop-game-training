@@ -21,7 +21,7 @@
   </head>
   <body>
     <div id="stopLightContainer">
-      <div id="stopLight" class="stopLight stop"><div id="countDown"></div></div>
+      <div id="stopLight" class="stopLight stop"><div id="countDown">5</div></div>
     </div>
     <div class="headerContainer">
       <div class="logo"></div>
@@ -41,6 +41,9 @@
       </div>
     </div>
     <a href="#" id="startButton">Start Race</a>
+
+    <a href="#" onClick="$('#stopLight').removeClass('stop').addClass('start');">StopLight</a>
+
     <div class="raceTrack" id="raceTrack"></div>
 
     <script src="scripts/app.js"></script>
