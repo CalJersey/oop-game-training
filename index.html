@@ -8,20 +8,23 @@
     <!-- Google custom font: Quantico -->
     <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
 
-		<!-- Custom CSS -->
+		<!-- Custom CSS-->
 		<link rel="stylesheet" href="styles/reset.css">
+    <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
 
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="styles/main.css">
 
     <!-- JS -->
 		<script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.easyModal.js"></script>
 
     <title>Racy Cars</title>
   </head>
   <body>
     <div id="stopLightContainer">
-      <div id="stopLight" class="stopLight stop"><div id="countDown">5</div></div>
+      <div id="stopLight" class="stopLight stop"><div id="countDown"></div></div>
     </div>
     <div class="headerContainer">
       <div class="logo"></div>
@@ -48,7 +51,7 @@
     </div>
 
     <div class="raceTrack" id="raceTrack"></div>
-
+    <div id="modalContainer"></div>
     <script src="scripts/app.js"></script>
   </body>
 </html>

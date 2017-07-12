@@ -7,6 +7,12 @@ $(document).ready(function(){
   let car2 = new Car("car2","car2","car2","images/police.gif",0,0,0,116,65);
   car2.makeCar();
 
+  let carChoices = [];
+  carChoices[0] = {'name':'police','image':'police.gif', 'width':288};
+  carChoices[1] = {'name':'brown','image':'brownCar.gif', 'width':288};
+  carChoices[2] = {'name':'tractor','image':'tractor.gif', 'width':288};
+  carChoices[3] = {'name':'bug','image':'bug.gif', 'width':288};
+
   //init Game
   game = new Game();
   //minimum of 2 players
@@ -16,30 +22,33 @@ $(document).ready(function(){
   game.addPlayer(player0);
 
   //2 Player Game listener
-  $("#Players2").on("click",function(){
-    game.loadPlayerForm();
-  }
+  $("#players2").on("click",function(){
+    game.players[0].playerForm.loadPlayerForm();
+    toggleButtons(1);
+  });
   //3 Player Game listener
-  $("#Players3").on("click",function(){
+  $("#players3").on("click",function(){
     player = new Player();
     game.addPlayer(player);
-    game.loadPlayerForm();
-  }
+    game.players[0].playerForm.loadPlayerForm();
+    toggleButtons(1);
+  });
   //4 Player Game listener
-  $("#Players4").on("click",function(){
+  $("#players4").on("click",function(){
     player0 = new Player();
     player1 = new Player();
     game.addPlayer(player0);
     game.addPlayer(player1);
-    game.loadPlayerForm();
-  }
+    game.players[0].playerForm.loadPlayerForm();
+    toggleButtons(1);
+  });
   //startButton listener
   $("#startButton").on("click", function(event){
     event.preventDefault();
     let endDate = new Date().getTime();
     endDate = endDate + 5000;
     countDown(5,true,true,50,endDate);
-  })
+  });
 
   // code in here
   $(document).on("keydown",function(event){
@@ -61,9 +70,6 @@ function Game(numPlayers=2,players=[],isStarted=0,isInProgress=0,isEnded=0,elaps
   this.addPlayer = function(player=[]){
     this.players.push(player);
   };
-  this.loadPlayerForm = function(){
-    $("#playerForm").
-  }
 }
 
 function Car(id,name,cssClass,image="images/police.gif", speed=0, posRight=0, posTop=0,width=116,height=65,actionKey,) {
@@ -104,6 +110,7 @@ function Player(name="",car=new Car(),index=0,actionKey=0,){
   this.car = car;
   this.index = index;
   this.actionKey = actionKey;
+  this.playerForm = new PlayerForm(this);
   this.setCar = function(car){
     this.car = car;
   }
@@ -112,6 +119,42 @@ function Player(name="",car=new Car(),index=0,actionKey=0,){
   }
   this.setName = function(name){
     this.name = name;
+  }
+}
+
+function PlayerForm(parent){
+  this.parent = parent;
+  this.playerIndex = this.parent.index;
+  this.playerName = this.parent.name;
+  this.playerCar = this.parent.car;
+  this.playerActionKey = this.parent.actionKey;
+  this.loadPlayerForm = function(playerIndex=this.playerIndex){
+    $("#modalContainer").append(`
+      <div class="easy-modal-animated" id="modalform${playerIndex}">
+        <div class="modalLabel">Driver ${playerIndex}</div>
+        <div class="modalContent>
+          Driver ${playerIndex}, please make your selections.
+        </div>
+        <form name="Driver${playerIndex}" action="#" method="POST">
+          <label for="Name">Name:</label>
+          <input type="text" name="DriverName" value="" class="driverName"/>
+          <label for="AcceleratorKey">Accelerator Key:</label>
+          <input type="text" name="Accelerator" value="" class="accelerator"/>
+
+        </form>
+      </div>
+    `
+  ).easyModal({
+      top: 50,
+      autoOpen: true,
+      overlayOpacity: 0.3,
+      overlayColor: "#333",
+      overlayClose: false,
+      closeOnEscape: false,
+      transitionIn: 'animated fadeInUpBig',
+      transitionOut: 'animated fadeOutUpBig',
+      closeButtonClass: '.noClass'
+    });
   }
 }
 
@@ -145,6 +188,26 @@ function countDown(countStart=5,displayTime=false,startRed=true,interval=100,end
       clearInterval(intervalId);
       //switch stoplight
       $("#stopLight").removeClass(addClass).addClass(removeClass);
+      //clear countdown display
+      $("#countDown").html("");
     }
   }, interval);
+}
+
+function toggleButtons(off){
+  let playerDisplay = "";
+  let startDisplay = "";
+  if (off) {
+    playerDisplay = "none";
+    startDisplay = "inline";
+  } else{
+    playerDisplay = "none";
+    startDisplay = "inline";
+  };
+  setInterval(function(){
+    $("#players2").css("display",playerDisplay);
+    $("#players3").css("display",playerDisplay);
+    $("#players4").css("display",playerDisplay);
+    $("#startButton").css("display",startDisplay);
+  },1000);
 }
