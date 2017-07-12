@@ -3,7 +3,7 @@ body {
   color: #ffffff;
   font-family: 'Quantico', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   align: center;
 }
 
@@ -194,29 +194,74 @@ ul.instructions li {
   display: none;
 }
 
-.modalLabel {
+.modalTitle{
   height: 20px;
-  margin:0px;
-  padding: 2px;
+  margin: 0px;
+  padding: 1px;
   color:  #6fa8dc;
   background-color: #fff;
+  font-size: 16px;
 }
 
 .easy-modal-animated {
   padding: 0px;
-  margin: 0px;
-  width: 600px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 550px;
+  height: 400px;
   background-color: #6fa8dc;
   border: 2px solid #ffffff;
   border-radius: 5px;
-  width: 600px;
   align: center;
-  margin-left: 25%;
-  margin-right: 25%;
 }
 
 .modalContent {
   padding: 5px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: 25%;
   align: center;
+  width: 50%;
   background-color: #2b78e4;
+}
+
+.modalForm {
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 25%;
+  align: center;
+  width: 80%;
+}
+
+.modalLabel {
+  margin-right: 10px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #6fa8dc;
+  padding: 0px;
+}
+
+.carForm {
+  display: inline;
+  float: left;
+  align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 100px;
+  vertical-align: bottom
+}
+
+.imageCheckBoxes{
+  width:100%;
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+.imageCheckBoxes::after{
+  content: "";
+  clear: both;
+  display: table;
 }
