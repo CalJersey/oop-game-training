@@ -7,17 +7,43 @@ $(document).ready(function(){
   let car2 = new Car("car2","car2","car2","images/police.gif",0,0,0,116,65);
   car2.makeCar();
 
+  //init Game
+  game = new Game();
+  //minimum of 2 players
+  player0 = new Player();
+  player1 = new Player();
+  game.addPlayer(player0);
+  game.addPlayer(player0);
+
+  //2 Player Game listener
+  $("#Players2").on("click",function(){
+    game.loadPlayerForm();
+  }
+  //3 Player Game listener
+  $("#Players3").on("click",function(){
+    player = new Player();
+    game.addPlayer(player);
+    game.loadPlayerForm();
+  }
+  //4 Player Game listener
+  $("#Players4").on("click",function(){
+    player0 = new Player();
+    player1 = new Player();
+    game.addPlayer(player0);
+    game.addPlayer(player1);
+    game.loadPlayerForm();
+  }
   //startButton listener
   $("#startButton").on("click", function(event){
     event.preventDefault();
     let endDate = new Date().getTime();
     endDate = endDate + 5000;
-    countDown(5,true,true,100,endDate);
+    countDown(5,true,true,50,endDate);
   })
+
   // code in here
   $(document).on("keydown",function(event){
     event.preventDefault();
-
     if (event.which == keyCode){
       car1.incrementPosRight();
     };
@@ -25,7 +51,22 @@ $(document).ready(function(){
   });
 });
 
-function Car(id,name,cssClass,image="images/police.gif", speed=0, posRight=0, posTop=0,width=116,height=65,actionKey) {
+function Game(numPlayers=2,players=[],isStarted=0,isInProgress=0,isEnded=0,elapsedTime=0,) {
+  this.numPlayers = numPlayers;
+  this.players = players;
+  this.isStarted = isStarted;
+  this.isInProgress = isInProgress;
+  this.isEnded = isEnded;
+  this.elapsedTime = elapsedTime;
+  this.addPlayer = function(player=[]){
+    this.players.push(player);
+  };
+  this.loadPlayerForm = function(){
+    $("#playerForm").
+  }
+}
+
+function Car(id,name,cssClass,image="images/police.gif", speed=0, posRight=0, posTop=0,width=116,height=65,actionKey,) {
 	this.image = image;
 	this.speed = speed;
   this.cssClass = cssClass;
@@ -58,6 +99,22 @@ function Car(id,name,cssClass,image="images/police.gif", speed=0, posRight=0, po
 
 }
 
+function Player(name="",car=new Car(),index=0,actionKey=0,){
+  this.name = name;
+  this.car = car;
+  this.index = index;
+  this.actionKey = actionKey;
+  this.setCar = function(car){
+    this.car = car;
+  }
+  this.setActionKey = function(key){
+    this.actionKey = key;
+  }
+  this.setName = function(name){
+    this.name = name;
+  }
+}
+
 function countDown(countStart=5,displayTime=false,startRed=true,interval=100,endDate=new Date().getTime()){
   let removeClass = "";
   let addClass = "";
@@ -77,13 +134,13 @@ function countDown(countStart=5,displayTime=false,startRed=true,interval=100,end
   let intervalId = setInterval(function() {
     let now = new Date().getTime();
     let distance = endDate - now;
-    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    let seconds = Math.round((distance % (1000 * 60)) / 1000);
     //if we are displaying the countdown set the html of the countDown element to num seconds left
     if (displayTime){
       $("#countDown").html(seconds);
     }
     //if countdown has elaspsed
-    if (distance <= 0){
+    if (seconds <= 0){
       //stop interval
       clearInterval(intervalId);
       //switch stoplight

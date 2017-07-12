@@ -52,18 +52,19 @@ ul.instructions li {
   display: inline-block;
   float: left;
   margin-left: -50px;
-  margin-top: 60px;
+  margin-top: 120px;
 
 }
 
 .headerContent {
-  margin: 5px;
   padding: 20px;
   background-color: #2b78e4;
   border: 1px solid #ffffff;
   width: 70%;
   min-width: 600px;
   align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-left: 15%;
   margin-right: 15%;
 }
@@ -124,9 +125,10 @@ ul.instructions li {
   top: 102px;
   left: 58px;
   font-size: 55px;
+  visibility: hidden;
 }
 
-#startButton {
+.gameButton {
 	-moz-box-shadow: 3px 4px 0px 0px #1564ad;
 	-webkit-box-shadow: 3px 4px 0px 0px #1564ad;
 	box-shadow: 3px 4px 0px 0px #1564ad;
@@ -142,20 +144,20 @@ ul.instructions li {
 	-webkit-border-radius:5px;
 	border-radius:5px;
 	border:1px solid #337bc4;
-	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
 	font-size:17px;
 	font-weight:bold;
-	padding:12px 44px;
+	padding:9px 20px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #528ecc;
-  position: absolute;
-  top: 30px;
-  right: 30px;
+  position: relative;
+	display:inline;
+  top: 0px;
 }
-#startButton:hover {
+
+.gameButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2b78e4), color-stop(1, #6fa8dc));
 	background:-moz-linear-gradient(top, #2b78e4 5%, #6fa8dc 100%);
 	background:-webkit-linear-gradient(top, #2b78e4 5%, #6fa8dc 100%);
@@ -165,6 +167,24 @@ ul.instructions li {
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2b78e4', endColorstr='#6fa8dc',GradientType=0);
 	background-color:#2b78e4;
 }
-#startButton:active {
-	top:31px;
+
+#startButton {
+  visibility: hidden;
+  left: 40px;
+}
+
+#players2 {
+  left: 10px;
+}
+
+#players3 {
+  left: 40px;
+}
+
+#players4 {
+  left: 70px;
+}
+
+.gameButton:active {
+	top: 1px;
 }
