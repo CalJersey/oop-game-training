@@ -1,3 +1,4 @@
+
 body {
   background-color: #6fa8dc;
   color: #ffffff;
@@ -56,7 +57,6 @@ ul.instructions li {
   float: left;
   margin-left: -50px;
   margin-top: 100px;
-
 }
 
 .headerContent {
@@ -75,12 +75,18 @@ ul.instructions li {
   margin-top: 30px;
   width: 100%;
   background-image: url('../images/roadway.gif');
-  height: 250px;
-  background-repeat: repeat-x;
+  height: 400px;
+  background-repeat: repeat;
   float: left;
   position: relative;
   min-width: 1024px;
 
+}
+
+.driverSubButton{
+  visibility: hidden;
+  float:right;
+  display:inline;
 }
 
 .car1 {
@@ -221,7 +227,8 @@ ul.instructions li {
   padding: 5px;
   margin-top: 40px;
   margin-bottom: 20px;
-  margin-left: 25%;
+  margin-left: auto;
+  margin-right: auto;
   align: center;
   width: 50%;
   background-color: #2b78e4;
@@ -254,13 +261,13 @@ ul.instructions li {
   vertical-align: bottom
 }
 
-.imageCheckBoxes{
+.imageRadios{
   width:100%;
   overflow-x: visible;
   overflow-y: visible;
 }
 
-.imageCheckBoxes::after{
+.imageRadios::after{
   content: "";
   clear: both;
   display: table;
