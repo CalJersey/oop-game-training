@@ -213,34 +213,38 @@ ul.instructions li {
   padding: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  margin-left: 15%;
-  margin-right: 15%;
   width: 550px;
-  height: 400px;
+  height: 350px;
+  margin-right: 15%;
   background-color: #6fa8dc;
   border: 2px solid #ffffff;
   border-radius: 5px;
-  align: center;
 }
 
 .modalContent {
   padding: 5px;
   margin-top: 40px;
   margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  align: center;
-  width: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+  align: 80%;
   background-color: #2b78e4;
+}
+.modalRow {
+  margin-bottom: 15px;
+}
+.modalRow input {
+  margin-right: 15%;
 }
 
 .modalForm {
   padding: 0px;
   margin-top: 5px;
   margin-bottom: 5px;
-  margin-left: 25%;
+  margin-left: 10%;
+  margin-right: 10%;
   align: center;
-  width: 80%;
+  width: 90%;
 }
 
 .modalLabel {
@@ -252,23 +256,45 @@ ul.instructions li {
 }
 
 .carForm {
-  display: inline;
+  display: inline-block;
+  position: relative;
   float: left;
   align: center;
   margin-left: 10px;
   margin-right: 10px;
-  height: 100px;
-  vertical-align: bottom
+  height:50px;
 }
 
-.imageRadios{
+.carImage {
+  vertical-align: bottom;
+  position: relative;
+  top: 50%;
+  left: 5px;
+}
+
+.carChoice {
+  display: inline-block;
+  position: relative;
+  left: 0px;
+  top: 60%;
+}
+
+.imageRadios {
   width:100%;
   overflow-x: visible;
   overflow-y: visible;
+  vertical-align: bottom;
 }
 
-.imageRadios::after{
+.imageRadios::after {
   content: "";
   clear: both;
   display: table;
+}
+
+#driverFormSubmit {
+  position: absolute;
+  top: 80%;
+  right:10%;
+
 }

@@ -59,11 +59,16 @@ $(document).ready(function() {
   //driver form button listener -triggers form submission
   $("#driverFormSubmit").on("click", function(event) {
     event.preventDefault();
-    //regiter click on the dden hiform submit button
-    $("#driverSubButton").click();
+    $("#driveForm").trigger("submit");
+    //register click on the hid=dden submit button
+    $("#driverSubButton").trigger("click");
+
 
   });
+  $("#driverForm").on("submit",function(event){
+    event.preventDefault();
 
+  });
   // Keystroke listener
 /*    event.preventDefault();
     if (event.which == keyCode) {
@@ -151,6 +156,8 @@ function initDriverForm(num=1) {
 
   $("span[data-driverNum]").html(num);
 
+  $("#driverNum").val(num)
+
   if (num < game.numDrivers) {
     $("span[data-nextDriverNum]").html(nextNum);
   } else {
@@ -162,8 +169,8 @@ function initDriverForm(num=1) {
   let radioButContentStr = "";
   carChoices.forEach(function(v, i) {
     let tempString = "";
-    tempString = `<span class="carForm"><img name="${v.name}" title="${v.name}" src="images/${v.image}" width="${v.thumbnailWidth}">`;
-    tempString = `${tempString}<br><input type="radio" name="carChoice" value="${i}" required></span>`;
+    tempString = `<div class="carForm"><input type="radio" class="carChoice" name="carChoice" value="${i}" required>`;
+    tempString = `${tempString}<img class="carImage" name="${v.name}" title="${v.name}" src="images/${v.image}" width="${v.thumbnailWidth}"></div>`;
     radioButContentStr = `${radioButContentStr}${tempString}`;
   });
 

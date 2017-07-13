@@ -57,14 +57,15 @@
           Driver <span data-driverNum=0></span>, please make your selections.
         </div>
         <form name="driverForm" id="driverForm" action="javascript:0" method="POST">
-          <input type="hidden" id="driverNum" name="driverNum" value="">
+          <input type="hidden" id="driverNum" name="driverNum" value="0">
           <div class="modalForm">
-            <label class="modalLabel" for="Name">Name:</label>
-            <input type="text" name="driverName" id="driverName" value="" size="15" required="true" class="driverName" required/>
-          </div>
-          <div class="modalForm">
-            <label class="modalLabel" for="AcceleratorKey">Accelerator Key:</label>
-            <input type="text" name="acceleratorKey" id="acceleratorKey" value="" size="3" maxlength="1" class="accelerator" required/>
+            <div class="modalRow">
+              <label class="modalLabel" for="Name">Name:</label>
+              <input type="text" name="driverName" id="driverName" value="" size="15" required="true" class="driverName" required/>
+              <label class="modalLabel" for="AcceleratorKey">Accelerator Key:</label>
+              <input type="text" name="acceleratorKey" id="acceleratorKey" value="" size="3" maxlength="1" class="accelerator" required/>
+            </div>
+            <label class="modalLabel" for="Name">Choose yor car:</label>
             <div class="imageRadios" id="imageRadios"></div>
             <a href="#" class="gameButton" id="driverFormSubmit">Proceed to Driver <span data-nextDriverNum=0></span></a>
             <input type="submit" value="submit" name="driverSubButton" id="driverSubButton" class="driverSubButton">
